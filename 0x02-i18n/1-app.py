@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Contains the Flask application app """
-from flask import Flask, render_template
+from flask import Flask, render_template. request
 from flask_babel import Babel
 
 
 class Config():
-    """ """
+    """Class that helps configure babel"""
     LANGUAGES = ['en', 'fr']
     TIMEZONE = 'UTC'
 
@@ -23,11 +23,13 @@ def index():
 
 @babel.localeselector
 def get_locale():
-    return app.config['LANGUAGES'][0]
+    """Get the locale for configuration """
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @babel.timezoneselector
 def get_timezone():
+    """Get the timezone for configuration """
     return app.config['TIMEZONE']
 
 
