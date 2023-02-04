@@ -27,6 +27,7 @@ def get_locale():
     """Get the locale for configuration"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
+
 """
 @babel.timezoneselector
 def get_timezone():Get the timezone for configuration
