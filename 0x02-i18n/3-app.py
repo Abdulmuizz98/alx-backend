@@ -27,6 +27,7 @@ def get_locale():
     return request.accept_languages.best_match(['fr'])
     # return request.accept_languages.best_match(app.config['LANGUAGES'])
 
+
 babel = Bab(app, locale_selector=get_locale)
 """
 @babel.timezoneselector
