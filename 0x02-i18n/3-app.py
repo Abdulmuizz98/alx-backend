@@ -17,7 +17,7 @@ app.config.from_object(Config)
 
 @app.route('/')
 def index():
-    """Render Home page """
+    """Render Home page for the application """
     return render_template('3-index.html')
 
 
@@ -29,11 +29,7 @@ def get_locale():
 
 
 babel = Bab(app, locale_selector=get_locale)
-"""
-@babel.timezoneselector
-def get_timezone():Get the timezone for configuration
-    return app.config['BABEL_DEFAULT_TIMEZONE']
-"""
+
 
 if __name__ == '__main__':
     app.run(debug=True)
