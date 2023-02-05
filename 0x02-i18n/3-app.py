@@ -18,14 +18,15 @@ app.config.from_object(Config)
 @app.route('/')
 def index():
     """Render Home page """
-    return render_template('3-index.html')
+    return render_template('3-index.html', title='Welcome to Holberton',
+                           h1='Hello world')
 
 
 # @babel.localeselector
 def get_locale():
     """Get the locale for configuration"""
-    return request.accept_languages.best_match(['fr'])
-    # return request.accept_languages.best_match(app.config['LANGUAGES'])
+    # return request.accept_languages.best_match(['fr'])
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 babel = Bab(app, locale_selector=get_locale)
